@@ -1,7 +1,7 @@
 default["chef_workstation"]["chef_user"] = ENV['USER']
 default["chef_workstation"]["user"] = 'vagrant'
 default["chef_workstation"]["group"] = 'vagrant'
-default['chef_workstation']['chefdk_version'] = '0.10.0-1'
+default['chef_workstation']['chefdk_version'] = '1.1.16-1'
 default['chef_workstation']['vagrant_version'] = '1.9.1'
 default['chef_workstation']['docker_version'] = '0.12.0'
 default['chef_workstation']['chef_server']['user'] = "\#{ENV['USERNAME'] || ENV['USER']}"

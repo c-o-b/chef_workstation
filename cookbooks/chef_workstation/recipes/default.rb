@@ -19,7 +19,8 @@ package node['chef_workstation']['packages']
 directory '/var/cache/wget'
 
 dk_file = "chefdk_#{node['chef_workstation']['chefdk_version']}_amd64.deb"
-dk_url = "https://opscode-omnibus-packages.s3.amazonaws.com/ubuntu/12.04/x86_64/#{dk_file}"
+#dk_url = "https://opscode-omnibus-packages.s3.amazonaws.com/ubuntu/12.04/x86_64/#{dk_file}"
+dk_url = "https://packages.chef.io/files/stable/chefdk/1.1.16/ubuntu/12.04/#{dk_file}"
 vagrant_file = "vagrant_#{node['chef_workstation']['vagrant_version']}_x86_64.deb"
 vagrant_url = "https://releases.hashicorp.com/vagrant/#{node['chef_workstation']['vagrant_version']}/#{vagrant_file}"
 
@@ -96,12 +97,12 @@ bash "save iptables and append load command to rc.local" do
   code "iptables-save > /etc/iptables/rules.v4"
 end
 
-directory '/chef-repo/.chef' 
+directory '/chef-repo/.chef'
 template '/chef-repo/.chef/knife.rb' do
   source '.chef/knife.rb.erb'
   variables({
     :chef_server_user => node['chef_workstation']['chef_server']['user'],
-    :chef_server_url => node['chef_workstation']['chef_server']['url']    
+    :chef_server_url => node['chef_workstation']['chef_server']['url']
   })
   action :create_if_missing
 end

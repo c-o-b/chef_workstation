@@ -25,5 +25,6 @@ default['chef_workstation']['gems'] = [
   'kitchen-vagrant',
   'vagrant-wrapper',
   'kitchen-nodes',
+  'kitchen-inspec',
   'pry-byebug'
 ]
